@@ -1,0 +1,13 @@
+.NavigationItem{
+    display: inline-block;
+    margin : 10px;
+}
+
+.NavigationItem a{
+    text-decoration: none;
+
+}
+.active{
+    color: #bb1d1d;
+    border-bottom: 2px solid;
+}
