@@ -2,8 +2,13 @@
     display : flex;  
     flex-wrap: wrap;
     justify-content: center;
+    height: calc(100vh - 160px ) !important;
+    overflow: auto !important;
 }
 
 .MovieLists{
     position: relative;
+}
+.MovieContainer{
+   
 }

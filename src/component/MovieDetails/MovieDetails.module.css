@@ -1,5 +1,135 @@
 .Detail{
-    height : 500px;
-    background-size : cover;
-    background-repeat : no-repeat;
+    height: calc(100vh - 200px);
+    background-size : cover !important;
+    background-repeat : no-repeat !important;
+    /* background-color: rgba(255,255,255,0.6) !important;  */
+    /* background-blend-mode: lighten !important; */
+    /* margin: 20px;
+    border: 2px solid transparent; */
+    margin: 5px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
+    display: flex;
+    flex-grow: inherit;
 }
+.Poster {
+    width:70%;
+}
+.Poster img{
+    height: 100% !important;
+    width:100%;
+}
+.Info{
+    z-index: 999;
+    width: 50%;
+    color: #fff;
+    padding: 20px;
+}
+.BackBtn{
+    background: transparent;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    margin-top: 8px;
+    cursor: pointer;
+    padding: 0 !important;
+}
+
+.Actions{
+    margin-top: 20px !important;
+}
+.Description{
+    font-weight: 500l
+}
+.Actions span{
+    margin-right: 10px;
+}
+.BtnIcon{
+    background-color: transparent;
+    border:none;
+    font-size: 30px;
+    color:#fff;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.videoBackground {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.videoForeground,
+.videoBackground iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#vidtop-content {
+	top: 0;
+    color: #fff;
+}
+
+.ToggledContent{
+   width : 10% !important;
+}
+.ToggledContent >a , .ToggledContent >h1 , .ToggledContent >h3, .ToggledContent >p{
+    display: none !important;
+ }
+
+.vidInfo { 
+    position: absolute; 
+    top: 60px; right: 0;
+     width: 50%; 
+     background: rgba(0,0,0,0.3); 
+     color: #fff; padding: 1rem; 
+     font-family: Avenir, Helvetica, sans-serif; 
+     opacity: 0;
+     animation: ImageFadeIn .6s 1.1s forwards;
+     -webkit-transition: width 1s ease-in-out;
+     -moz-transition: width 1s ease-in-out;
+     -o-transition: width 1s ease-in-out;
+     transition: width 1s ease-in-out;
+    }
+.vidInfo h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
+.vidInfo a { 
+    display: block; 
+    color: #fff; 
+    text-decoration: none; 
+    background: rgba(0,0,0,0.5); 
+    transition: .6s background; 
+    border-bottom: none; 
+    margin: 1rem auto; text-align: center; 
+ }
+ .Hidden{
+     display: none;
+ }
+ .BannerImg{
+ width : 100%;
+ filter: brightness(0.2);
+ }
+
+
+ @keyframes ImageFadeIn {
+    0% { transform: translate(-.5rem, -.5rem) scale(1.05); opacity: 0; filter: blur(2px); }
+    50% { opacity: 1; filter: blur(2px); }
+    100% { transform: translateY(0) scale(1.0); opacity: 1; filter: blur(0); }
+  }
+
+@media (min-aspect-ratio: 16/9) {
+  .videoForeground{ height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .videoForeground{ width: 300%; left: -100%; }
+}
+@media all and (max-width: 600px) {
+.vidInfo { width: 50%; padding: .5rem; }
+.vidInfo h1 { margin-bottom: .2rem; }
+}
+@media all and (max-width: 500px) {
+.vidInfo .acronym { display: none; }
+}
+

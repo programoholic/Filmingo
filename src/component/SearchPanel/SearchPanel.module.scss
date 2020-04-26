@@ -1,0 +1,240 @@
+
+
+.SearchInput{
+    width: 70%;
+    // height: 30px;
+    // border: 2px solid #d2cece;
+    // border-radius: 5px;
+    // font-size: 20px;
+    // padding: 5px;
+    margin:15px;
+}
+.SearchPanel{
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+.LoadingDiv{
+    margin-left: 10px;
+}
+
+.SearchBtn{
+    width: 150px;
+    margin-left: 10px;
+    margin-top: 4px;
+    /* border-radius: 8px; */
+    background-color: #075b69;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    height: 50px;
+    cursor: pointer;
+}
+@media (max-width : 992px){
+    .SearchInput {
+        width : 70%
+    }   
+  }
+
+
+
+
+  @import url('https://fonts.googleapis.com/css?family=Dosis');
+
+  :root {
+    /* generic */
+    --gutterSm: 0.4rem;
+    --gutterMd: 0.8rem;
+    --gutterLg: 1.6rem;
+    --gutterXl: 2.4rem;
+    --gutterXx: 7.2rem;
+    --fontSizeSm: 1.2rem;
+    --fontSizeMd: 1.6rem;
+    --fontSizeLg: 2.1rem;
+    --fontSizeXl: 2.8rem;
+    --fontSizeXx: 3.6rem;
+    --lineHeightSm: 1;
+    --lineHeightMd: 1.8;
+    --transitionDuration: 300ms;
+    --transitionTF: cubic-bezier(0.645, 0.045, 0.355, 1);
+    
+    /* floated labels */
+    --inputPaddingV: var(--gutterMd);
+    --inputPaddingH: var(--gutterLg);
+    --inputFontSize: var(--fontSizeLg);
+    --inputLineHeight: var(--lineHeightMd);
+    --labelScaleFactor: 0.8;
+    --labelDefaultPosY: 50%;
+    --labelTransformedPosY: calc(
+      (var(--labelDefaultPosY)) - 
+      (var(--inputPaddingV) * var(--labelScaleFactor)) - 
+      (var(--inputFontSize) * var(--inputLineHeight))
+    );
+    --inputTransitionDuration: var(--transitionDuration);
+    --inputTransitionTF: var(--transitionTF);
+  }
+  
+ 
+
+  
+  .InputText {
+    display: block;
+    margin: 0;
+    padding: 5px;
+    // padding: var(--inputPaddingV) var(--inputPaddingH);
+    color: inherit;
+    width: 100%;
+    font-family: inherit;
+    font-size: 25px;
+    font-weight: inherit;
+    line-height: var(--inputLineHeight);
+    border: none;
+    border-radius: 0.4rem;
+    transition: box-shadow 300ms;
+  }
+  
+  .InputText::placeholder {
+    color: #B0BEC5;
+  }
+  
+  .InputText:focus {
+    outline: none;
+    box-shadow: 0.2rem 0.8rem 1.6rem rgb(105, 105, 105);
+  }
+.BtnPanel{
+    margin: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+//VARIABLES
+$accent-theme-color: #119DA4;
+
+$btn-bg-1: #880044;
+$btn-bg-2: rgb(9, 110, 105);
+$btn-bg-3: #D78521;
+$btn-bg-4: #745296;
+$btn-bg-5: #3E8914;
+
+$btn-hover-effect-padding-vert: 19px;
+$btn-hover-effect-padding-horz: 35px;
+$icon-block-width: 40px;
+
+//MIXINS
+
+//transitions mixin
+@mixin transition-mix($property: all, $duration: 0.2s, $timing: linear, $delay: 0s) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-delay: $delay;
+}
+
+//position absolute mixin
+@mixin position-absolute ($top: null, $left: null, $right: null, $bottom: null) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+.btn_hover_effect {
+  display: flex;
+  color: #fff;
+  letter-spacing: 1px;
+  line-height: 1;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  &:nth-child(1) {
+    background-color: $btn-bg-2;
+  }
+}
+
+.btn_hover_effect {
+  @include transition-mix();
+  
+  position: relative;
+  
+  display: flex;
+  align-items: center;
+  padding: $btn-hover-effect-padding-vert $btn-hover-effect-padding-horz;
+  
+  transform: translateZ(0);
+  
+  text-decoration: none;
+  
+  overflow: hidden;
+}
+
+/* effect 1 styles */
+.btn_hover_effect_effect_1 {  
+  
+  /* overlay block styles */
+  &:before {
+    @include position-absolute($top: 0, $left: 0);
+    @include transition-mix($property: transform);
+    
+    display: block;
+    width: 100%;
+    height: 100%;
+    
+    content: '';
+    
+    background-color: rgba(255,255,255, .2);
+    
+    transform: scale(0, 1);
+    transform-origin: right top;
+    
+    z-index: -1;
+  }
+  
+  /* icon styles */
+//   &:after {
+//     @include position-absolute($top: 1px, $right: (- $icon-block-width));
+//     @include transition-mix();
+    
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100%;
+//     width: $icon-block-width;
+//     content: '\f105';
+//     font: {
+//       family: "Font Awesome 5 Free";
+//       size: 25px;
+//       weight: 900;
+//     }
+//     line-height: inherit;
+    
+//     opacity: 0;
+//   }
+  
+  //hover styles
+  &:hover {
+    padding-left: $btn-hover-effect-padding-horz - 10;
+    padding-right: $btn-hover-effect-padding-horz + 10;
+    
+    &:before {
+      transform: scale(1, 1);
+      
+      transform-origin: left top;
+    }
+    
+    &:after {
+      right: 0;
+      
+      opacity: 1;
+    }
+  }
+  
+}
+
+

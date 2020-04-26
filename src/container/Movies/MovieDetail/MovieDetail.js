@@ -1,10 +1,8 @@
 import React,  { Component } from 'react';
-import { restAPIdetails } from  '../../../core/AppContstants';
+import { connect } from 'react-redux';
 import    MovieDetails  from '../../../component/MovieDetails/MovieDetails';
-
-const API_KEY = restAPIdetails.API_KEY;
-const BASE_URL = restAPIdetails.BASE_URL;
-const LANGUAGE = restAPIdetails.LANGUAGE; 
+import * as actionCreators from '../../../store/actions/actionCreators';
+import Zoom from 'react-reveal/Zoom';
 
 class MovieDetail extends Component{
     state = {
@@ -12,25 +10,41 @@ class MovieDetail extends Component{
     }
     componentDidMount() {
         const id = this.props.match.params.id;
-        fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=${LANGUAGE}`)
-            .then((response)=>{
-            return response.json();
-            })
-            .then((movieDetail)=>{
-                  this.setState({movieDetail :  movieDetail})
-            });
+        if(this.props.movieDetail=== null || this.props.movieDetail.id != id){
+            this.props.onFetchMovieDetails(id);
+        }
     }
-    
+    goBack = ()=>{
+        this.props.history.goBack();
+    }
     render(){
         return (
             <div style={{marginTop : '50px',}}> 
-                  { this.state.movieDetail ?
-                    <MovieDetails movieDetail={this.state.movieDetail} />    
+                  { this.props.movieDetail ?(
+                  <MovieDetails 
+                        clicked={this.goBack} 
+                        trailorClicked = {this.props.onFetchTrailor}
+                        movieDetail={this.props.movieDetail}
+                        trailorData = { this.props.trailorData}
+                         />
+                   )   
                      : null }        
             </div>
            )
     }
 }
- 
 
-export default MovieDetail;
+const mapStateToProps = state =>{
+    return {
+        movieDetail : state.selectedMovie,
+        trailorData : state.trailorData
+    }
+}
+const mapDispatchToProps = dispatch =>{
+    return {
+        onFetchMovieDetails : (movieId) => dispatch(actionCreators.fetchMovieDetail(movieId)),
+        onFetchTrailor : (movieString) => dispatch(actionCreators.fetchTrailorData(movieString))        
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MovieDetail);

@@ -16,7 +16,7 @@ const movieList = (props)=>{
           hasMore={true}
           className={classes.MovieList}
         >
-           {movies} 
+           {movies}  
         </InfiniteScroll>
     )
 }

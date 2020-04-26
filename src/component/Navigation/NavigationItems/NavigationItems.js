@@ -14,7 +14,7 @@ const navigationItems = (props) =>{
             link : '/collections',
             exact : true,
             component : 'Collections'
-       }
+        }
     ];
     const navigation = navList.map((item,index)=>{
         return <NavigationItem key={item.name+'__'+index} {...item} />
