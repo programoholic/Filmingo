@@ -3,7 +3,7 @@ import Zoom from 'react-reveal/Zoom';
 import classes from './MovieDetails.module.css';
 import { restAPIdetails } from  '../../core/AppContstants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPlusSquare , faPlayCircle , faArrowLeft, faClock, faStar, faCross, faVolumeOff,faVolumeUp } from '@fortawesome/free-solid-svg-icons'
+import {faPlusSquare , faPlayCircle , faArrowLeft, faClock, faStar, faCross, faVolumeOff,faVolumeUp, faVolumeMute } from '@fortawesome/free-solid-svg-icons'
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieMetaInfo from './MovieMetaInfo/MovieMetaInfo'; 
 import YTtrailor from '../YTtrailor/YTtrailor';
@@ -12,18 +12,21 @@ const POSTER_BASE_PATH = restAPIdetails.POSTER_BASE_PATH+'w1280//';
 
 const MovieDetails = (props)=>{
      const [trailerMode,setTrailerMode] = useState(false)
+     const [mute,setMute] = useState(false)
      console.log(props.movieDetail);
      const clicked = (event)=>{
          console.log('clkied chanhed');
            setTrailerMode(true);
-        props.trailorClicked(props.movieDetail.title+' - trailor');
+           props.trailorClicked(props.movieDetail.title+' - trailor');
      }
      const closeTrailer = (e)=>{
         console.log('video is finished')
         setTrailerMode(false);
      }
      const toggleMute = ()=>{
-         console.log('mute toggled');
+         console.log('mute toggled',mute);
+         setMute(!mute)
+
      }
      useEffect(()=>{
        console.log('compoent mounted !!!!');     
@@ -33,7 +36,7 @@ const MovieDetails = (props)=>{
             { trailerMode && props.trailorData ?  
             (<div className={classes.videoBackground}>
                  <div className={classes.videoForeground}>
-                         <YTtrailor video={props.trailorData} videoEnd={closeTrailer} />
+                         <YTtrailor video={props.trailorData} videoEnd={closeTrailer} isMuted={mute}/>
                 </div>
                 </div>
                 ) :
@@ -53,7 +56,7 @@ const MovieDetails = (props)=>{
                         <span style={{textAlign:'center',marginLeft: '20px'}}>  {props.movieDetail.title} </span>
                          <span style={{float:'right'}}> 
                             <button onClick={toggleMute} className={classes.BackBtn}>
-                              <FontAwesomeIcon icon={faVolumeUp} />
+                              <FontAwesomeIcon icon={ !mute? faVolumeUp : faVolumeMute} />
                             </button>   
 
                          </span>

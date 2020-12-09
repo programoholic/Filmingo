@@ -1,8 +1,8 @@
 export const restAPIdetails = {
    BASE_URL : "https://api.themoviedb.org/3",
-   API_KEY  : "662f504471c31ccff558f5eda1d05bec",
+   API_KEY  : "",
    LANGUAGE : "en-US",
    POSTER_BASE_PATH : 'http://image.tmdb.org/t/p/',
-   YT_API_KEY : `AIzaSyCAKR4NjP_7FvcElZXKHdnSWgrHiR4dJ6Y`
+   YT_API_KEY : ``
    
 }

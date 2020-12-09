@@ -1,13 +1,8 @@
 
 
 .SearchInput{
-    width: 70%;
-    // height: 30px;
-    // border: 2px solid #d2cece;
-    // border-radius: 5px;
-    // font-size: 20px;
-    // padding: 5px;
-    margin:15px;
+    width: 65%;
+    margin-top:15px;
 }
 .SearchPanel{
     display: flex;
@@ -15,7 +10,7 @@
     padding: 0px;
 }
 .LoadingDiv{
-    margin-left: 10px;
+    margin-top: 18px;
 }
 
 .SearchBtn{
@@ -29,6 +24,12 @@
     font-weight: 600;
     height: 50px;
     cursor: pointer;
+}
+
+.disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+  background-color: grey !important;
 }
 @media (max-width : 992px){
     .SearchInput {
@@ -80,7 +81,7 @@
   .InputText {
     display: block;
     margin: 0;
-    padding: 5px;
+    padding: 4px;
     // padding: var(--inputPaddingV) var(--inputPaddingH);
     color: inherit;
     width: 100%;

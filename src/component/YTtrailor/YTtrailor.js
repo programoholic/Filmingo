@@ -1,7 +1,7 @@
 import React , { useEffect} from 'react';
 import YouTube from 'react-youtube';
 
-const API_KEY = `AIzaSyCAKR4NjP_7FvcElZXKHdnSWgrHiR4dJ6Y`;
+const API_KEY = `AIzaSyCmFcenQelZ_PjV2gaegZKJKxUlgosjmnI`;
 
 
 const YTtrailor = (props)=>{
@@ -12,11 +12,11 @@ const YTtrailor = (props)=>{
         playerVars: {
           // https://developers.google.com/youtube/player_parameters
           autoplay: 1,
-          controls :1,
-          modestbranding :1,
+          controls: 1,
+          modestbranding :0,
           rel : 0,
           loop: 1,
-          mute :0
+          mute : props.isMuted //0
         },
       };
       const onReady = (e)=>{

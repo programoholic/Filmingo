@@ -31,6 +31,12 @@ const movieTrailorFetched = (trailors)=>{
         value : trailors
     }
 }
+const movieSearchStarted = (searchTerm) =>{
+    return {
+        type: actionType.SEARCH_MOVIE,
+        value: searchTerm
+    }
+}
 export const getInitialMovies = () => { 
     return dispatch => {
         fetchInitialMovies().then((movies)=>{
@@ -41,6 +47,7 @@ export const getInitialMovies = () => {
 
 export const searchMovies = (searchTerm,page=1)=>{
     return dispatch =>{
+        dispatch(movieSearchStarted(searchTerm))
          fetchMovies(searchTerm,page).then((movies)=>{
             dispatch(movieFetched(movies.results))      
         });

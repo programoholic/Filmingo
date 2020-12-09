@@ -41,7 +41,8 @@ const [visible , setVisible] = useState(null);
 
         <div className={classes.card__content}>
           <h2 className={classes.card__title}>{props.original_title}</h2>
-          <p> {props.overview} </p>
+          <p> {props.overview.substr(0,215)} {props.overview.length>215 ? '.....': ''} </p>
+          <br></br>
         </div>
       </div>
     )

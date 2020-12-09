@@ -18,7 +18,7 @@ const reducer = (state=initialState , action)=>{
              newState = { ...state , searchKey : action.value};
              return newState;     
         case actionType.SEARCH_MOVIE : 
-              newState= { ...state , loading :true }
+              newState= { ...state , loading :true,searchKey : action.value  }
              return  newState;
             
         case actionType.MOVIE_FETCHED :

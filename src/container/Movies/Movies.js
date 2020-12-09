@@ -13,7 +13,7 @@ class Movies extends Component {
     }
 
     state = {
-        searchKey : '',
+        searchKey : this.props.searchKey,
         // selectedMovie : null,
         // isMainRoute : true,
     }
