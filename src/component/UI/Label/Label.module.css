@@ -1,0 +1,10 @@
+.Label{
+    /* background-color: #e94560; */
+    background-color: #c3073f;
+    padding: 5px;
+    color: #fff;
+    width: fit-content;
+    border-radius: 2px;
+    display: inline-block;
+    margin: 4px;
+}

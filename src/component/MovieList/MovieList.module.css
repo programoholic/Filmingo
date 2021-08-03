@@ -2,8 +2,8 @@
     display : flex;  
     flex-wrap: wrap;
     justify-content: center;
-    height: calc(100vh - 160px ) !important;
-    overflow: auto !important;
+    height: calc(100vh - 120px ) !important;
+    /* overflow: auto !important; */
 }
 
 .MovieLists{
@@ -11,4 +11,10 @@
 }
 .MovieContainer{
    
+}
+.More{
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
 }

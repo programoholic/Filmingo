@@ -88,7 +88,7 @@ img {
   position: absolute;
   right: 0;
 }
- 
+
 .card {
   position: relative;
   background: #333;
@@ -133,15 +133,29 @@ img {
     margin-top: -2.8rem;
     opacity: 0;
     animation: ContentFadeIn .8s 1.6s forwards;
+    max-height: 200px;
+    overflow: hidden;
   }
-  
+  &__LabelSection{
+    position: absolute;
+    opacity: 0;
+    bottom: 10px;
+    animation: ContentFadeIn .8s 2.0s forwards;
+    font-size: 12px;
+  }
   &__svg {
     position: absolute;
     left: 0;
     top: 166px;
   }
 }
-
+.favBtn{
+  position:absolute;
+  right: 21px;
+  top: 0px;
+  font-size: 25px;
+  color: #fff;
+}
 @keyframes LineFadeIn {
   0% { opacity: 0; d: path("M 0 300 Q 0 300 0 300 Q 0 300 0 300 C 0 300 0 300 0 300 Q 0 300 0 300 "); stroke: #fff; }
   50% { opacity: 1; d: path("M 0 300 Q 50 300 100 300 Q 250 300 350 300 C 350 300 500 300 650 300 Q 750 300 800 300"); stroke: #888BFF; }
